@@ -24,7 +24,7 @@ suite:
   lastModifiedBy: Admin
   profileMappingID: 0
   maxProfileMappingID: 1
-  nextIdentifier: 3
+  nextIdentifier: 4
   tests:
   - $type: RESTClientToolTest
     testLogic: true
@@ -36,6 +36,37 @@ suite:
       $type: RESTClient
       iconName: RESTClient
       name: Rest client
+      outputTools:
+      - $type: DiffTool
+        iconName: Diff
+        name: "Diff control generated on Nov 14, 2024, 2:11:50 PM."
+        differs:
+        - $type: TextDiffer
+        - $type: JSONDiffer
+        source:
+          controls:
+          - keys:
+            - ""
+            - ""
+            row:
+              refs:
+              - dataSourceName: ""
+              last: false
+          - |-
+            {
+                "id" : 12212,
+                "firstName" : "John",
+                "lastName" : "Smith",
+                "address" : {
+                    "street" : "1431 Main St",
+                    "city" : "Beverly Hills",
+                    "state" : "CA",
+                    "zipCode" : "90210"
+                },
+                "phoneNumber" : "310-447-4121",
+                "ssn" : "622-11-9999"
+            }
+        mode: 3
       formJson:
         value:
           $type: ElementValue
