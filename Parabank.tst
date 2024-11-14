@@ -24,7 +24,7 @@ suite:
   lastModifiedBy: Admin
   profileMappingID: 0
   maxProfileMappingID: 1
-  nextIdentifier: 3
+  nextIdentifier: 4
   tests:
   - $type: RESTClientToolTest
     testLogic: true
@@ -36,6 +36,28 @@ suite:
       $type: RESTClient
       iconName: RESTClient
       name: Rest client
+      outputTools:
+      - $type: GenericDataBank
+        iconName: XMLDataBank
+        name: JSON Data Bank
+        wrappedTool:
+          $type: XMLtoDataSource
+          iconName: XMLDataBank
+          name: XML Data Bank
+          selectedXPaths:
+          - elementOption: 1
+            contentOption: 1
+            XMLDataBank_ExtractXPath: "/root/id[1]/text()"
+            mode: 1
+          canonicalizeOutput: true
+          xmlMessage: true
+          virtualDSCreator:
+            writableColumns:
+            - customName: "Test 1: id"
+        conversionStrategy:
+          dataFormatName: JSON
+          conversionStrategyId: JSON
+          conversionStrategyClassName: com.parasoft.xml.convert.json.JsonConversionStrategy
       formJson:
         value:
           $type: ElementValue
