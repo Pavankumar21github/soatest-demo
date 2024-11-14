@@ -37,6 +37,27 @@ suite:
       iconName: RESTClient
       name: Rest client
       outputTools:
+      - $type: GenericDataBank
+        iconName: XMLDataBank
+        name: JSON Data Bank
+        wrappedTool:
+          $type: XMLtoDataSource
+          iconName: XMLDataBank
+          name: XML Data Bank
+          selectedXPaths:
+          - elementOption: 1
+            contentOption: 1
+            XMLDataBank_ExtractXPath: "/root/id[1]/text()"
+            mode: 1
+          canonicalizeOutput: true
+          xmlMessage: true
+          virtualDSCreator:
+            writableColumns:
+            - customName: "Test 1: id"
+        conversionStrategy:
+          dataFormatName: JSON
+          conversionStrategyId: JSON
+          conversionStrategyClassName: com.parasoft.xml.convert.json.JsonConversionStrategy
       - $type: DiffTool
         iconName: Diff
         name: "Diff control generated on Nov 14, 2024, 2:11:50 PM."
